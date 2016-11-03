@@ -20,6 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+//        document.addEventListener('submit', this.submit.bind(this), false);
     },
 
     // deviceready Event Handler
@@ -28,6 +29,11 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+
+        var toast = cordova.require('toast');
+        toast.show("我是Toast提示",1);
+
+        toast.submit("hello cordova");
     },
 
     // Update DOM on a Received Event
@@ -40,7 +46,12 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    submit:function(){
+      alert("================");
     }
-};
 
+};
 app.initialize();
+
+
